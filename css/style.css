@@ -1,0 +1,73 @@
+html, body{
+  height: 100%;
+}
+
+body {
+   background-color: #3E3A39;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-attachment: fixed;
+   background-size: cover;
+   position: relative; /* Определяет позиционирование элементов внутри */
+}
+
+.vh-100 {
+  min-height: 100vh !important;
+}
+
+.flex-grow-1{
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.card .card-img-top {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.container_nav {
+  /* position: absolute; */
+  margin-top: 15px;
+  max-width: 1920px;
+}
+
+.logo {
+  max-height: 60px;
+}
+
+h1, h2, h3, h4 {
+  display: inline;
+  color: #DCDCDC;
+  background-color: #3E3A39;
+}
+label {
+   font-weight: bold;
+}
+footer {
+  height: 50px;
+}
+
+input[type="date"] {
+  padding: 5px;
+  font-size: 16px;
+  width: 200px;
+}
+
+/* Скрываем определенные столбцы на мобильных устройствах */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+/* Показываем скрытые столбцы на десктопах */
+@media (min-width: 769px) {
+  .show-on-desktop {
+    display: table-cell;
+  }
+}
+
+
+
+
