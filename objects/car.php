@@ -145,5 +145,5 @@ class Car
 
     }
 
-   
+   function update(){}
 }

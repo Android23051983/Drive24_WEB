@@ -5,14 +5,14 @@ header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 
-include_once '/home/c/cx83378/websitedevel/public_html/objects/user.php';
+include_once '/home/c/cx83378/websitedevel/public_html/objects/userRentalData.php';
 include_once '/home/c/cx83378/websitedevel/public_html/configure/database.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 //инициализируем объект
-$user = new User($db);
+$user = new UserRentalData($db);
 
 //запрашиваем пользователей
 $stmt = $user->read_client();

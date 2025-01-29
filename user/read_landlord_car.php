@@ -7,7 +7,7 @@ header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
 
 // подключение файла для соединения с базой и файл с объектом
-include_once '/home/c/cx83378/websitedevel/public_html/objects/user.php';
+include_once '/home/c/cx83378/websitedevel/public_html/objects/userRentalData.php';
 include_once '/home/c/cx83378/websitedevel/public_html/configure/database.php';
 
 // получаем соединение с базой данных
@@ -15,7 +15,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 // подготовка объекта
-$user = new User($db);
+$user = new UserRentalData($db);
 
 //получение данных от клиента
 $data = json_decode(file_get_contents("php://input"));

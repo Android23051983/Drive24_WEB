@@ -15,7 +15,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 // подготовка объекта
-$user = new User($db);
+$user = new UserRentalData($db);
 
 // установим значения свойств пользователя
 $user->first_name = $data->first_name;
@@ -23,8 +23,8 @@ $user->last_name = $data->last_name;
 $user->email = $data->email;
 $user->phone = $data->phone;
 $user->role = $data->role;
-$user->date_start = $data->date_start;
-$user->date_end = $data->date_end;
+$user->users_cars_date_start = $data->date_start;
+$user->users_cars_date_end = $data->date_end;
 
 // обновление пользователя
 if ($user->update()) {
@@ -32,7 +32,7 @@ if ($user->update()) {
     http_response_code(200);
 
     // сообщим пользователю
-    echo json_encode(array("message" => "Пользователь был обновлён"), JSON_UNESCAPED_UNICODE);\
+    echo json_encode(array("message" => "Пользователь был обновлён"), JSON_UNESCAPED_UNICODE);
 }
 // если не удается обновить пользователя, сообщим пользователю
 else {

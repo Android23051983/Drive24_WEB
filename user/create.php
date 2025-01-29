@@ -11,10 +11,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once "../config/database.php";
 
 // создание объекта пользователя
-include_once "../objects/user.php";
+include_once "../objects/userRentalData.php";
 $database = new Database();
 $db = $database->getConnection();
-$user = new User($db);
+$user = new UserRentalData($db);
 
 // получаем отправленные данные
 $data = json_decode(file_get_contents("php://input"));
@@ -24,7 +24,7 @@ if (
 !empty($last_name)&&
 !empty($email)&&
 !empty($phone)&&
-!empty($role)&7
+!empty($role)&&
 !empty($date_start)&&
 !empty($date_end)
 ) {
@@ -35,8 +35,8 @@ $user->last_name = $data->last_name;
 $user->email = $data->email;
 $user->phone = $data->phone;
 $user->role = $data->role;
-$user->date_start = $data->date_start;
-$user->date_end = $data->date_end;
+$user->users_cars_date_start = $data->date_start;
+$user->users_cars_date_end = $data->date_end;
 
 //создадим пользователя
 if ($user->create()) {
@@ -50,7 +50,7 @@ if ($user->create()) {
     http_response_code(503);
 
     //сообщение пользователю
-     echo json_encode(array("message" => "Невозможно создать пользовтеля."), JSON_UNESCAPED_UNICODE);
+    echo json_encode(array("message" => "Невозможно создать пользовтеля."), JSON_UNESCAPED_UNICODE);
 }
 } 
 // сообщим пользователю что данные неполные

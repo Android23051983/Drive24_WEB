@@ -8,7 +8,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // подключим файл для соединения с базой и объектом 
-include_once '/home/c/cx83378/websitedevel/public_html/objects/user.php';
+include_once '/home/c/cx83378/websitedevel/public_html/objects/userRentalData.php';
 include_once '/home/c/cx83378/websitedevel/public_html/configure/database.php';
 
 // получаем соединение с БД
@@ -16,7 +16,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 // подготовка объекта
-$user = new User($db);
+$user = new UserRentalData($db);
 
 // получаем id товара
 $data = json_decode(file_get_contents("php://input"));
