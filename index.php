@@ -2,9 +2,9 @@
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
 header('Access-Control-Allow-Credentials: true');
-require_once "bootstrap.php";
-include_once PROJECT_ROOT_PATH . '/create_db/create_table.php';
-include_once PROJECT_ROOT_PATH . '/configure/database.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/client/pages//create_db/create_table.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . "/configure/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +19,10 @@ include_once PROJECT_ROOT_PATH . '/configure/database.php';
 <div class="d-flex flex-column vh-100">
     <header class="container">
         <div class="row">
-            <h1 class="col-6 d-flex align-items-center">Драйв24</h1>
-            <div class="col-6">
+            <h1 class="col-6 mt-auto mb-auto">Драйв24</h1>
+            <div class="col-6 mt-auto mb-auto">
                 <h4 class="text-end h-responsive">Администратор:</h4>
-                <h4 class="text-end h-responsive">+7(928)752-56-05</h4>
+                <h4 class="text-end h-responsive"><a href="tel:+79287525605">+7 (928) 752-56-05</a></h4>
             </div>
         </div>
     </header>
@@ -33,7 +33,7 @@ include_once PROJECT_ROOT_PATH . '/configure/database.php';
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark rounded-3">
                     <div class="container-fluid">
                         <?php
-                        require_once("pages/navbar.php");
+                        require_once("client/pages/navbar.php");
                         ?>
                     </div>
                 </nav>
@@ -51,55 +51,55 @@ include_once PROJECT_ROOT_PATH . '/configure/database.php';
                                 include_once("login_ya.php");
                                 break;
                             case 2:
-                                include_once("pages/admin/get_user.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/admin/get_user.php";
                                 break;
                             case 3:
-                                include_once("pages/auth_admin/login_admin.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/auth_admin/login_admin.php";
                                 break;
                             case 4:
-                                include_once("pages/car/add_car.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/car/add_car.php";
                                 break;
                             case 5:
                                 if (isset($_GET["userid"]) && isset($_GET["carid"])) {
                                 $userid = $_GET["userid"];
                                 $carid = $_GET["carid"];
-                                include_once("pages/admin/update_user_car.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/admin/update_user_car.php";
                                 }
                                 break;
                             case 6:
-                                include_once("pages/admin/detail_client.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/admin/detail_client.php";
                                 break;
                             case 7:
-                                include_once("pages/admin/detail_landlord.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/admin/detail_landlord.php";
                                 break;
                             case 8:
-                                include_once("pages/rent/rent.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/rent/rent.php";
                                 break;
                             case 9:
-                                include_once("pages/landlord/lk.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/landlord/lk.php";
                                 break;
                             case 10:
-                                include_once("pages/client/lk.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/client/lk.php";
                                 break;
                             case 11:
-                                include_once("pages/search.php");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/search.php";
                                 break;
                             case 12:
-                                include_once("");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/passport/add_passport.php";
                                 break;
                             case 13:
-                                include_once("");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/car/cars.php";
                                 break;
                             case 14:
-                                include_once("");
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/client/pages/passport/update_passport.php";
                                 break;
                             case 15:
                                 include_once("");
                                 break;
                         }
                     } else {
-                        include_once("pages/car/cars.php");
-                    }
+                        include_once("client/pages/car/cars.php");
+                    }      
                     ?>
                 </div>
             </section>
@@ -107,7 +107,7 @@ include_once PROJECT_ROOT_PATH . '/configure/database.php';
     </div>
     
     <footer class="bg-light rounded-3 px-3 py-3 d-flex align-items-center justify-content-between">
-            <p class="fw-bold text-dark align-middle ml=auto">
+            <p class="fw-bold text-dark align-middle mt-auto mb-auto">
                 2024-2025, Драйв24 Team. © All right reserved.
             </p>
             <a class="btn btn-sm btn-info border-dark align-middle rounded align-middle mr-auto" href="/documents/Инструкция.pdf" download>Инструкция в формате PDF</a>

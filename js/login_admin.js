@@ -2,7 +2,7 @@ async function loginAdmin() {
     const login = document.getElementById('inputLogin').value; 
     const email = document.getElementById('inputEmail').value;
     const _data = {login, email};
-    const response = await fetch('/user/login_admin.php',{
+    const response = await fetch('/server/user/login_admin.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

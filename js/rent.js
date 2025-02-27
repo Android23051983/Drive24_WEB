@@ -2,7 +2,7 @@ async function getCar(id) {
     _data = {id};
     console.log("car_id: ", _data.id);
     try{
-        const response = await fetch("/car/read_one.php", {
+        const response = await fetch("/server/car/read_one.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ document.getElementById('carRentForm').addEventListener('submit', function(event
     formData.append('car_id', car_id);
     formData.append('user_id', user_id);
 
-     fetch('/rent/rent.php', {
+     fetch('/server/rent/rent.php', {
         method: "POST",
         body: formData
     })

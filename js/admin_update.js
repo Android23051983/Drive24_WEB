@@ -1,6 +1,6 @@
 function getCountrySelect() {
     //Вывод списка стран для добавления города.
-    fetch("/country_city/read_country.php")
+    fetch("/server/country_city/read_country.php")
         .then(response => response.json())
         .then(data => {
             const countryname = document.getElementById('countryname');
@@ -31,11 +31,7 @@ function getCitySelect() {
     const data = {countryid};
     citySelect.innerHTML="";
 
-    // if(!countryid){
-    //     citySelect.disabled = true;
-    //     return;
-    // }
-    fetch("/country_city/read_city.php",{
+    fetch("/server/country_city/read_city.php",{
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -86,7 +82,7 @@ async function load_data(userId, carId, role) {
     const payload = { userId, carId, role };
     if(role == 12){
     try {
-        const response = await fetch("/user/read_landlord_one.php", {
+        const response = await fetch("/server/user/read_landlord_one.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +138,7 @@ async function load_data(userId, carId, role) {
     }
     if(role == 123){
         try {
-        const response = await fetch("/user/read_client_one.php", {
+        const response = await fetch("/server/user/read_client_one.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -246,9 +242,9 @@ document.getElementById('updateAdminForm').addEventListener('submit', async func
     const urlParams = new URLSearchParams(window.location.search);
     const _role = urlParams.get('role');
     if(_role == 123){
-    	await sendJsonToServer('updateAdminForm', '/user/update_client.php');
+    	await sendJsonToServer('updateAdminForm', '/server/user/update_client.php');
     } else if(_role == 12){
-    	await sendJsonToServer('updateAdminForm', '/user/update_landlord.php')
+    	await sendJsonToServer('updateAdminForm', '/server/user/update_landlord.php')
     }
     // location.reload();
     

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const car_number = urlParams.get('car_number');
     const _data = { car_number };
     console.log(_data);
-    const response = await fetch("/car/read_one_number.php", {
+    const response = await fetch("/server/car/read_one_number.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

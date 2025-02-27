@@ -1,7 +1,7 @@
 //Функции для последующего выполнения во время запуска web страницы
 async function getCountrySelect() {
     //Вывод списка стран для добавления города.
-    await fetch("/country_city/read_country.php")
+    await fetch("/server/country_city/read_country.php")
         .then(response => response.json())
         .then(data => {
             const countryname = document.getElementById('countryname');
@@ -26,7 +26,7 @@ async function getCountrySelect() {
 
 async function getTable_Country() {
     try{
-    await fetch("/country_city/read_country.php")
+    await fetch("/server/country_city/read_country.php")
         .then(response => response.json())
         .then(data => {
              const table_country = document.getElementById('table_country');
@@ -66,7 +66,7 @@ async function getTable_City() {
     const data = {countryid};
     
     try{
-    await fetch("/country_city/read_city.php",{
+    await fetch("/server/country_city/read_city.php",{
        method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ async function getTable_City() {
 
 async function getTableUser_Clien() {
     try {
-        const response = await fetch('/user/read_client.php');
+        const response = await fetch('/server/user/read_client.php');
 
         if (!response.ok) {
             throw new Error(`Сервер ответил с кодом: ${response.status}`);
@@ -209,7 +209,7 @@ async function getTableUser_Clien() {
 async function getTableUser_Lendlord() {
 
     try {
-        const response = await fetch('/user/read_lendlord.php');
+        const response = await fetch('/server/user/read_lendlord.php');
 
         if (!response.ok) {
             throw new Error(`Сервер ответил с кодом: ${response.status}`);
@@ -306,7 +306,7 @@ async function countryDelete(countryid) {
     const data = {countryid};
 
     try{
-        const response = await fetch('/country_city/delete_country.php', {
+        const response = await fetch('/server/country_city/delete_country.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -324,7 +324,7 @@ async function cityDelete(cityid) {
      const data = {cityid};
 
     try{
-        const response = await fetch('/country_city/delete_city.php', {
+        const response = await fetch('/server/country_city/delete_city.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -342,7 +342,7 @@ async function rentDelete(user_id, car_id) {
     const data = {user_id, car_id};
 
     try{
-        const response = await fetch('/user/delete_rent.php', {
+        const response = await fetch('/server/user/delete_rent.php', {
              method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -360,7 +360,7 @@ async function carDelete(id) {
     const data = {id};
 
     try{
-        const response = await fetch('/car/delete.php', {
+        const response = await fetch('/server/car/delete.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -405,14 +405,14 @@ async function sendJsonToServer(formId, url){
 // Обработка создания страны
 document.getElementById('jsonCountryForm').addEventListener('submit', async function(event){
     event.preventDefault();
-    await sendJsonToServer('jsonCountryForm', '/country_city/create_country.php');
+    await sendJsonToServer('jsonCountryForm', '/server/country_city/create_country.php');
     location.reload();
 });
 // Обработка создания города
 document.getElementById('jsonCityForm').addEventListener('submit', async function(event){
     event.preventDefault();
     
-    await sendJsonToServer('jsonCityForm', '/country_city/create_city.php');
+    await sendJsonToServer('jsonCityForm', '/server/country_city/create_city.php');
     location.reload();
 });
 

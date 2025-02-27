@@ -1,5 +1,5 @@
 async function getLendlordData() {
-    const response = await fetch('/user/read_lendlord.php');
+    const response = await fetch('/server/user/read_lendlord.php');
     const data = await response.json();
     return data;
 }

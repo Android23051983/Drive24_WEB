@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userId = urlParams.get('user_id');
     const _data = { carId, userId };
 
-    const response = await fetch("/user/read_landlord_one.php", {
+    const response = await fetch("/server/user/read_landlord_one.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

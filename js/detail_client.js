@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const _data = { carId, userId };
         console.log(carId, userId);
 
-        const response = await fetch("/user/read_client_one.php", {
+        const response = await fetch("/server/user/read_client_one.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function verifyRental(user_id, car_id) {
   data = {user_id, car_id};
 try {
-  const response = await fetch("/rent/rent_verify.php", {
+  const response = await fetch("/server/rent/rent_verify.php", {
     method: 'POST',
       headers: {
           'Content-Type': 'application/json'

@@ -1,6 +1,6 @@
 function getCountrySelect() {
     //Вывод списка стран для добавления города.
-    fetch("/country_city/read_country.php")
+    fetch("/server/country_city/read_country.php")
         .then(response => response.json())
         .then(data => {
             const countryname = document.getElementById('countryname');
@@ -35,7 +35,7 @@ function getCitySelect() {
         citySelect.disabled = true;
         return;
     }
-    fetch("/country_city/read_city.php",{
+    fetch("/server/country_city/read_city.php",{
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ document.getElementById('carForm').addEventListener('submit', function(event){
     formData.append('cost', cost);
     formData.append('file', photoInput.files[0]);
 
-    fetch('/car/create.php', {
+    fetch('/server/car/create.php', {
         method: "POST",
         body: formData
     })

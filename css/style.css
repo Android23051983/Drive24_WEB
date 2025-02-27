@@ -41,6 +41,17 @@ h1, h2, h3, h4 {
   color: #DCDCDC;
   background-color: #3E3A39;
 }
+
+a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #DCDCDC; /* Устанавливаем синий цвет */
+}
+
+a:hover {
+    text-decoration: underline; /* При наведении курсора добавляем подчеркивание */
+    color: #0056B3; /* Меняем цвет на темнее при наведении */
+}
+
 label {
    font-weight: bold;
 }
@@ -53,6 +64,17 @@ input[type="date"] {
   font-size: 16px;
   width: 200px;
 }
+
+.left-col {
+  float: left;
+  width: 20%;    
+}
+
+.right-col {
+  float: right;
+  width: 80%;
+}
+
 
 /* Скрываем определенные столбцы на мобильных устройствах */
 @media (max-width: 768px) {

@@ -1,9 +1,8 @@
 <?php
 session_start();
 error_reporting(E_ALL);
-require_once "bootstrap.php";
 
-require_once PROJECT_ROOT_PATH . "/configure/database.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/configure/database.php";
 //получаем код авторизации из GET-запроса
 $code = $_GET['code'];
 
@@ -19,7 +18,7 @@ if(!empty($code)){
 		exit();
 
 	} else {
-	require_once "pages/oauth_ya/oauth_token.php";
+	require_once "client/pages/oauth_ya/oauth_token.php";
 	$database = new Database();
 	$db = $database->getConnection();
 

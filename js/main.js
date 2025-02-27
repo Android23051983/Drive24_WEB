@@ -2,7 +2,7 @@ async function showCities(countryid) {
     if (countryid == 0) {
         document.querySelector("#cityid").innerHTML = "";
     }
-    var response = await fetch("pages/cities.php", {
+    var response = await fetch("client/pages/cities.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -19,7 +19,7 @@ async function showCars(cityid) {
     if (cityid == 0) {
         document.querySelector("#cars").innerHTML = "";
     }
-    var response = await fetch("pages/car/car_query.php", {
+    var response = await fetch("client/pages/car/car_query.php", {
          method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
