@@ -10,14 +10,14 @@ include_once "../shared/utilities.php";
 include_once "../config/database.php";
 include_once "../objects/product.php";
 
-/ utilities
+// utilities
 $utilities = new Utilities();
 
-/ создание подключения
+// создание подключения
 $database = new Database();
 $db = $database->getConnection();
 
-/ инициализация объекта
+// инициализация объекта
 $user = new User($db);
 
 // запрос товаров
@@ -38,13 +38,13 @@ if ($num > 0) {
         extract($row);
         $user_irem = array(
             "id"            => $id,
-            "first_name"    => $first_name;
-            "last_name"     => $last_name;
-            "email"         => $email;
-            "phone"         => $phone;
-            "role"          => $role;
-            "date_start"    => $date_start;
-            "date_end"      => $date_end;
+            "first_name"    => $first_name,
+            "last_name"     => $last_name,
+            "email"         => $email,
+            "phone"         => $phone,
+            "role"          => $role,
+            "date_start"    => $date_start,
+            "date_end"      => $date_end
         );
         array_push($users_arr["records"], $user_item);
     }
